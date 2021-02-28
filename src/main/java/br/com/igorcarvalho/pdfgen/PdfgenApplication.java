@@ -1,13 +1,13 @@
-package br.com.igorcarvalho.pdgen;
+package br.com.igorcarvalho.pdfgen;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PdgenApplication {
+public class PdfgenApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PdgenApplication.class, args);
+        SpringApplication.run(PdfgenApplication.class, args);
     }
 
 }

@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>br.com.igorcarvalho</groupId>
-    <artifactId>pdgen</artifactId>
+    <artifactId>pdfgen</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>pdgen</name>
+    <name>pdfgen</name>
     <description>Poc - Jasper Reports</description>
     <properties>
         <java.version>11</java.version>
