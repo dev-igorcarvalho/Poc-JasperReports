@@ -1,0 +1,16 @@
+#PROD environment
+
+app:
+  message: This is the property file fo the ${spring.application.name} specific to PROD Environment
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/<MYSQL_URL>
+    username: <USERNAME>
+    password: <PASSWORD>
+
+    jpa:
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
+      hibernate:
+        ddl-auto: update
