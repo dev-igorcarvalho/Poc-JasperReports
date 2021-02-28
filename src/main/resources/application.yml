@@ -13,7 +13,8 @@ app:
   api:
     context: api/${app.api.version}/
     version: v1
-  template:
-    jasper:
+  jasper:
+    template:
       location: templates/jasper/
+      data-source: ds
 
