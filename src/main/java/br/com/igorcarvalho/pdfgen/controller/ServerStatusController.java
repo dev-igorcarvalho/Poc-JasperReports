@@ -4,12 +4,10 @@ import br.com.igorcarvalho.pdfgen.model.dto.response.ServerStatusResponseDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import java.net.URI;
+import br.com.igorcarvalho.pdfgen.repository.MultaRepository;
 
 @RestController
 @RequestMapping("${app.api.context}/status")
@@ -33,7 +31,6 @@ public class ServerStatusController {
      */
     @Value("${ENV_DB_URL:NENHUMA}")
     private String dbEnvironmentVariable;
-
 
     @GetMapping("/env-variable")
     public String getEnvironmentVariavle() {
