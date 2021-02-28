@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 
 import java.io.File;
@@ -17,6 +18,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Slf4j
+@Component
 public abstract class AbstractReportGenerator<R extends AbstractEntity> {
 
     /**
@@ -50,14 +52,14 @@ public abstract class AbstractReportGenerator<R extends AbstractEntity> {
      * do arquivo jrxml que sera usado como
      * template.
      */
-    protected abstract String setJasperTemplate();
+    protected abstract String jasperTemplate();
 
     /**
      * Deve ser implementado retornando um
      * Hashmap com os as chaves tendo o mesmo
      * nome dos parametros criados no jrxml
      */
-    protected abstract  Map<String, Object> setParametersMap();
+    protected abstract  Map<String, Object> parametersMap();
 
 
     /**
@@ -69,7 +71,7 @@ public abstract class AbstractReportGenerator<R extends AbstractEntity> {
             file = Optional
                     .ofNullable(ResourceUtils.getFile(
                             String.format("classpath:%s%s.jrxml", jrxlmPath,
-                                    setJasperTemplate()))
+                                    jasperTemplate()))
                     );
         } catch (FileNotFoundException ex) {
             log.error("Arquivo de template Jasper nao encontrado", ex);
@@ -124,7 +126,7 @@ public abstract class AbstractReportGenerator<R extends AbstractEntity> {
      * Cria o JasperReport para PDF em bytecode
      */
     private byte[] getJasperReport() {
-        Map<String, Object> parameters = setParametersMap();
+        Map<String, Object> parameters = parametersMap();
         parameters.put(dataSourceParamKey, getDataSource());
 
         Optional<byte[]> byteCodeReport = Optional.empty();
